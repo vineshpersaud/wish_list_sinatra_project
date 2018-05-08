@@ -5,4 +5,4 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
-run UserController
+use UserController
