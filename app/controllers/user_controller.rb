@@ -11,7 +11,7 @@ class UserController < ApplicationController
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect to '/wishlist'
+      redirect to '/home'
     end
 
   end
@@ -20,7 +20,15 @@ class UserController < ApplicationController
     erb :'users/login'
   end
 
-  get '/wishlist' do
-    erb :'users/wishlist'
+  post '/login' do  
+    user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      @user = user.username
+      redirect to '/home'
+    else
+      redirect to '/signup'
+    end
   end
+
 end
