@@ -10,11 +10,13 @@ class WishListController < ApplicationController
   end
 
   post '/wishlist/new' do 
-    @wishlist = WishList.new(:name => params[:name])
-    redirect 'wishlist/show'
+    wishlist = WishList.new(:name => params[:name])
+    wishlist.save
+    redirect "wishlist/show/#{wishlist.id}" 
   end
 
-  get '/wishlist/show' do
+  get '/wishlist/show/:id' do
+    @wishlist = WishList.find_by_id(params[:id])
     erb :'wishlist/show'
   end
 
