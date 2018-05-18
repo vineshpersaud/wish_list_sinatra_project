@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string  "name"
     t.decimal "price"
     t.string  "quantity"
-    t.integer "wishlist_id"
+    t.integer "wish_list_id"
   end
 
   create_table "users", force: :cascade do |t|

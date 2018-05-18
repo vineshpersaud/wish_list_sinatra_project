@@ -4,7 +4,7 @@ class CreateItems< ActiveRecord::Migration
       t.string :name
       t.decimal :price
       t.string :quantity
-      t.integer :wishlist_id
+      t.integer :wish_list_id
     end
   end
 

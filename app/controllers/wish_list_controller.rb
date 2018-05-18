@@ -17,6 +17,7 @@ class WishListController < ApplicationController
 
   get '/wishlist/show/:id' do
     @wishlist = WishList.find_by_id(params[:id])
+    @items = @wishlist.items
     erb :'wishlist/show'
   end
 

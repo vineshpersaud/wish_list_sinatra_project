@@ -8,3 +8,4 @@ run ApplicationController
 use UserController
 use WishListController
 use SessionsController
+use ItemController
