@@ -2,5 +2,9 @@
 
 
 <% @wishlists.each do |list| %>
-  <h4><%= list.name %></h4>
+  <h4>
+
+    <a href="wishlist/show/<%=list.id%>"><%= list.name %></a>
+  </h4>
 <%end%>
+
