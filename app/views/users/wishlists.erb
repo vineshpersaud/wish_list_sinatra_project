@@ -1,0 +1,6 @@
+<h2>Welcome <%=@user%> ! Here are your list. </h2>
+
+
+<% @wishlists.each do |list| %>
+  <h4><%= list.name %></h4>
+<%end%>

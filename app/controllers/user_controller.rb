@@ -13,9 +13,12 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect to '/home'
     end
-
   end
 
-
+  get '/wishlists' do 
+    @user = current_user.username
+    @wishlists = current_user.wish_lists.all
+    erb :'users/wishlists'
+  end
 
 end

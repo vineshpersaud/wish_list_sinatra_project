@@ -10,7 +10,7 @@ class WishListController < ApplicationController
   end
 
   post '/wishlist/new' do 
-    wishlist = WishList.new(:name => params[:name])
+    wishlist = current_user.wish_lists.build(:name => params[:name])
     wishlist.save
     redirect "wishlist/show/#{wishlist.id}" 
   end
