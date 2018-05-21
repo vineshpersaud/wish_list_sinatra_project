@@ -22,4 +22,11 @@ class WishListController < ApplicationController
     erb :'wishlist/show'
   end
 
+
+  post '/wishlist/:id/delete' do #delete action
+    @wishlist = WishList.find_by_id(params[:id])
+    @wishlist.delete
+    redirect '/wishlists'
+  end
+
 end

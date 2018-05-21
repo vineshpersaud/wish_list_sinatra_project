@@ -13,3 +13,10 @@
  Add Item To Wishlist: <input type="text" name="item">
  <input type="submit" name="Add Item To List ">
 </form>
+
+<p>
+<form method="POST" action="/wishlist/<%=@wishlist.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete This Wishlist"  class="btn btn-danger">
+</form>
+</p>
