@@ -12,6 +12,12 @@
         <td><%=item.name%></td>
         <td><%=item.quantity%></td>
         <td><%=item.price%></td>
+        <td>
+          <form method="POST" action="/item/<%=item.id%>/delete">
+          <input id="hidden" type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete This item"  class="btn btn-danger">
+          </form>
+        </td>
       </tr>
    
   <%end%> 
