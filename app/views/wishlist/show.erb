@@ -3,6 +3,8 @@
 <ul>
   <% @items.each do |item|%>
     <li><%=item.name%><br><br></li>
+    <li><%=item.quantity%><br><br></li>
+    <li><%=item.price%><br><br></li>
   <%end%> 
 </ul>
 
@@ -10,7 +12,9 @@
 
 <form action="/item/new" method="POST">
 <input type="hidden" name="wishlist_id" value= <%=@wishlist.id%> >
- Add Item To Wishlist: <input type="text" name="item">
+ Add Item To Wishlist: <input type="text" name="item" placeholder="Item">
+ <input type="number" name="quantity" placeholder="Quantity">
+ <input type="text" name="price" placeholder="Price">
  <input type="submit" name="Add Item To List ">
 </form>
 
