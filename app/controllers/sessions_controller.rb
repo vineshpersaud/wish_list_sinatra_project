@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       @user = user.username
-      redirect to '/home'
+      redirect to '/wishlists'
     else
       redirect to '/signup'
     end

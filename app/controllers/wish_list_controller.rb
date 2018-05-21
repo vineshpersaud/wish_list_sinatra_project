@@ -1,8 +1,9 @@
 class WishListController < ApplicationController
  
-  get '/home' do
-    @user = current_user
-    erb :'/wishlist/home'
+  get '/wishlists' do 
+    @user = current_user.username
+    @wishlists = current_user.wish_lists.all
+    erb :'users/wishlists'
   end
 
   get '/wishlist/new' do 

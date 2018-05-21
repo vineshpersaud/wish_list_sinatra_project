@@ -11,14 +11,10 @@ class UserController < ApplicationController
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect to '/home'
+      redirect to '/wishlists'
     end
   end
 
-  get '/wishlists' do 
-    @user = current_user.username
-    @wishlists = current_user.wish_lists.all
-    erb :'users/wishlists'
-  end
+
 
 end

@@ -1,7 +1,8 @@
-<h1>Login</h1>
-<form method="post" action="/sessions/login">
-  <input type="text" name="username" placeholder="Username:">
-  <input type="text" name="password" placeholder="Password:">
 
-  <input type="submit">
+<div class="card card-container">
+<form action="/sessions/login" method="POST" >
+  <p><input type="text" name="username" placeholder="Name" class="form-control"></p>
+  <p><input type="text" name="password" placeholder="Password" class="form-control"></p>
+  <button class="btn-block btn btn-dark" input type="submit">Log In</button>
 </form>
+
