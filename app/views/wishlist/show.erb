@@ -1,12 +1,23 @@
 <h3>Here Is your <%= @wishlist.name%> Wishlist!</h3><br>
 
-<ul>
-  <% @items.each do |item|%>
-    <li><%=item.name%><br><br></li>
-    <li><%=item.quantity%><br><br></li>
-    <li><%=item.price%><br><br></li>
+
+<table class="table">
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th> 
+    <th>Price</th>
+  </tr>
+    <% @items.each do |item|%>
+      <tr>
+        <td><%=item.name%></td>
+        <td><%=item.quantity%></td>
+        <td><%=item.price%></td>
+      </tr>
+   
   <%end%> 
-</ul>
+ </table>
+
+
 
 <br><hr><br>
 
@@ -15,7 +26,7 @@
  Add Item To Wishlist: <input type="text" name="item" placeholder="Item">
  <input type="number" name="quantity" placeholder="Quantity">
  <input type="text" name="price" placeholder="Price">
- <input type="submit" name="Add Item To List ">
+ <input type="submit" name="Add Item To List " class="btn btn-primary">
 </form>
 
 <p>
