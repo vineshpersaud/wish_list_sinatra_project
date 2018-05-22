@@ -23,12 +23,16 @@
         <td><%=item.name%></td>
         <td><%=item.quantity%></td>
         <td><%=item.price%></td>
-        <td>
-          <form method="POST" action="/item/<%=item.id%>/delete">
-          <input id="hidden" type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete This item"  class="btn btn-danger btn-sm">
-          </form>
-        </td>
+        <%if logged_in?%>
+          <% if current_user.id == @wishlist.user_id %>
+            <td>
+              <form method="POST" action="/item/<%=item.id%>/delete">
+              <input id="hidden" type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete This item"  class="btn btn-danger btn-sm">
+              </form>
+            </td>
+          <%end%>
+        <%end%>
       </tr>
    
   <%end%> 
