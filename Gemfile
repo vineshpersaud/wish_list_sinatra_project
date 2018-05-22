@@ -7,13 +7,14 @@ gem 'rake'
 gem 'require_all'
 gem 'bcrypt'
 gem 'rack-flash3'
+gem 'thin'
 
 group :development do
  gem 'sqlite3'
  gem "tux"
  gem 'pry'
  gem 'shotgun'
- gem 'thin'
+ 
 end
 
 group :production do
