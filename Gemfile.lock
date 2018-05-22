@@ -118,7 +118,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   dotenv
-  pg (~> 1.0.0)
+  pg
   pry
   rack-flash3
   rack-test
@@ -131,9 +131,6 @@ DEPENDENCIES
   sqlite3
   thin
   tux
-
-RUBY VERSION
-   ruby 2.3.4p301
 
 BUNDLED WITH
    1.16.2
