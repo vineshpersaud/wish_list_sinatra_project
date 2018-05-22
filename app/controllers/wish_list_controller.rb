@@ -1,7 +1,8 @@
 require 'rack-flash'
 
+
 class WishListController < ApplicationController
-  use Rack::Flash
+use Rack::Flash
 
 
   get "/" do
@@ -35,7 +36,7 @@ class WishListController < ApplicationController
   end
 
 
-  post '/wishlist/:id/delete' do #delete action
+  post '/wishlist/:id/delete' do
     @wishlist = WishList.find_by_id(params[:id])
     if logged_in?
       if @wishlist && @wishlist.user_id == current_user.id 

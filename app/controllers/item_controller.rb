@@ -1,4 +1,5 @@
 class ItemController < ApplicationController 
+  
 
   post '/item/new' do
     @wishlist = WishList.find_by_id(params[:wishlist_id])

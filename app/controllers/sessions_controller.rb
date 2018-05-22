@@ -1,8 +1,5 @@
-require 'rack-flash'
-
-
 class SessionsController < ApplicationController 
-    use Rack::Flash
+   
 
   get '/login' do
     erb :'users/login'
@@ -15,13 +12,14 @@ class SessionsController < ApplicationController
       @user = user.username
       redirect  '/wishlists'
     else
+      flash[:alert] = "Login information incorrect signup below."
       redirect  '/signup'
     end
   end
 
 
   get '/sessions/logout' do 
-    flash[:message] = "Item successfully deleted."
+    flash[:message] = "You have successfully logged out."
     session.clear 
     erb :'wishlist/home'
   end

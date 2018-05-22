@@ -1,3 +1,9 @@
+  <% if flash.has?(:alert) %>
+    <div class="alert alert-danger" role="alert">
+     <%= flash[:alert] %>
+    </div>
+  <% end %>
+
 <div class="card card-container">
 <form action="/signup" method="POST" >
   <p><input type="text" name="username" placeholder="Name" class="form-control"></p>
