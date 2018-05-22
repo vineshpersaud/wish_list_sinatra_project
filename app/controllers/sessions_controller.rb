@@ -13,17 +13,17 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       @user = user.username
-      redirect to '/wishlists'
+      redirect  '/wishlists'
     else
-      redirect to '/signup'
+      redirect  '/signup'
     end
   end
 
 
   get '/sessions/logout' do 
-    session.clear
-    flash[:message] = "Successfully Logged Out."
-    redirect '/'
+    flash[:message] = "Item successfully deleted."
+    session.clear 
+    erb :'wishlist/home'
   end
 
 end

@@ -2,6 +2,15 @@ require 'rack-flash'
 
 class WishListController < ApplicationController
   use Rack::Flash
+
+
+  get "/" do
+    if logged_in?
+      redirect '/wishlists' 
+    else
+      erb :'wishlist/home'
+    end
+  end
  
   get '/wishlists' do 
     @user = current_user.username

@@ -4,6 +4,12 @@
   <title>Wish List </title>
 </head>
 <body>
+  <% if flash.has?(:message) %>
+    <div class="alert alert-success" role="alert">
+     <%= flash[:message] %>
+    </div>
+  <% end %>
+
   <h1>Wish list Creator</h1>
         <a href="/signup">Sign Up</a>
         <a href="/login"> Sign In </a>
