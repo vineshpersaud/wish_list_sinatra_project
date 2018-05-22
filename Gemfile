@@ -9,17 +9,18 @@ gem 'require_all'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem 'thin'
-gem 'pg', '~> 0.20'
+
 
 
 group :development do
- gem "tux"
+ gem  'sqlite3'
+ gem 'tux'
  gem 'pry'
  gem 'shotgun'
 end
 
 group :production do
- 
+ gem 'pg', '~> 0.20'
 end
 
 
