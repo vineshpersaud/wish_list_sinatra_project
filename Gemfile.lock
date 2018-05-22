@@ -125,7 +125,6 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
-  sqlite3
   thin
   tux
 
