@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
+gem 'ruby '2.3.7''
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
@@ -8,7 +9,6 @@ gem 'require_all'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem 'thin'
-gem 'dotenv'
 
 group :development do
  gem 'sqlite3'
