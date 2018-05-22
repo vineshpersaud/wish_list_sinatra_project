@@ -1,6 +1,13 @@
 <h2>Welcome <%=@user%> ! Here are your list. </h2>
 
 
+  <% if flash.has?(:message) %>
+    <div class="alert alert-success" role="alert">
+     <%= flash[:message] %>
+    </div>
+  <% end %>
+
+
 <% @wishlists.each do |list| %>
   <h4>
     <a href="wishlist/show/<%=list.id%>"><%= list.name %></a>

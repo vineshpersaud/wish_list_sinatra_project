@@ -1,9 +1,20 @@
 <h3>Here Is your <%= @wishlist.name%> Wishlist!</h3><br>
 
+  <% if flash.has?(:message) %>
+    <div class="alert alert-success" role="alert">
+     <%= flash[:message] %>
+    </div>
+  <% end %>
+
+  <% if flash.has?(:alert) %>
+    <div class="alert alert-danger" role="alert">
+     <%= flash[:alert] %>
+    </div>
+  <% end %>
 
 <table class="table">
   <tr>
-    <th>Item</th>
+    <th>Item Name</th>
     <th>Quantity</th> 
     <th>Price</th>
   </tr>
@@ -29,7 +40,7 @@
 
 <form action="/item/new" method="POST">
 <input type="hidden" name="wishlist_id" value= <%=@wishlist.id%> >
- Add Item To Wishlist: <input type="text" name="item" placeholder="Item">
+ Add Item To Wishlist: <input type="text" name="item" placeholder="Item Name">
  <input type="number" name="quantity" placeholder="Quantity">
  <input type="text" name="price" placeholder="Price">
  <input type="submit" name="Add Item To List " value="Add Item" class="btn btn-primary">

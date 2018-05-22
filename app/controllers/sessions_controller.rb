@@ -1,4 +1,8 @@
+require 'rack-flash'
+
+
 class SessionsController < ApplicationController 
+    use Rack::Flash
 
   get '/login' do
     erb :'users/login'
@@ -18,6 +22,7 @@ class SessionsController < ApplicationController
 
   get '/sessions/logout' do 
     session.clear
+    flash[:message] = "Successfully Logged Out."
     redirect '/'
   end
 

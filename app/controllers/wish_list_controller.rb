@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class WishListController < ApplicationController
+  use Rack::Flash
  
   get '/wishlists' do 
     @user = current_user.username
@@ -26,6 +29,7 @@ class WishListController < ApplicationController
   post '/wishlist/:id/delete' do #delete action
     @wishlist = WishList.find_by_id(params[:id])
     @wishlist.delete
+    flash[:message] = "Wishlist successfully deleted."
     redirect '/wishlists'
   end
 
