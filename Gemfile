@@ -12,7 +12,7 @@ gem 'thin'
 
 
 
-group :development do
+group :development, :test do
  gem  'sqlite3'
  gem 'tux'
  gem 'pry'
