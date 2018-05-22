@@ -1,3 +1,4 @@
+ENV['SINATRA_ENV'] ||= "production"
 require 'bundler/setup'
 Bundler.require
 
@@ -22,5 +23,6 @@ configure :production do
     :encoding => 'utf8'
   )
 end
+
 
 require_all 'app'
