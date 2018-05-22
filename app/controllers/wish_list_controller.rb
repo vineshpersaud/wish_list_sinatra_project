@@ -37,9 +37,15 @@ class WishListController < ApplicationController
 
   post '/wishlist/:id/delete' do #delete action
     @wishlist = WishList.find_by_id(params[:id])
-    @wishlist.delete
-    flash[:message] = "Wishlist successfully deleted."
-    redirect '/wishlists'
+    if logged_in?
+      if @wishlist && @wishlist.user_id == current_user.id 
+        @wishlist.delete
+        flash[:message] = "Wishlist successfully deleted."
+        redirect '/wishlists'
+      end
+    else
+      redirect "wishlist/show/#{@wishlist.id}" 
+    end
   end
 
 end

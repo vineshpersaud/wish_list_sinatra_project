@@ -37,18 +37,21 @@
 
 
 <br><hr><br>
+<%if logged_in?%>
+  <% if current_user.id == @wishlist.user_id %>
+    <form action="/item/new" method="POST">
+    <input type="hidden" name="wishlist_id" value= <%=@wishlist.id%> >
+     Add Item To Wishlist: <input type="text" name="item" placeholder="Item Name">
+     <input type="number" name="quantity" placeholder="Quantity">
+     <input type="text" name="price" placeholder="Price">
+     <input type="submit" name="Add Item To List " value="Add Item" class="btn btn-primary">
+    </form>
 
-<form action="/item/new" method="POST">
-<input type="hidden" name="wishlist_id" value= <%=@wishlist.id%> >
- Add Item To Wishlist: <input type="text" name="item" placeholder="Item Name">
- <input type="number" name="quantity" placeholder="Quantity">
- <input type="text" name="price" placeholder="Price">
- <input type="submit" name="Add Item To List " value="Add Item" class="btn btn-primary">
-</form>
-
-<p>
-<form method="POST" action="/wishlist/<%=@wishlist.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete This Wishlist"  class="btn btn-danger">
-</form>
-</p>
+    <p>
+    <form method="POST" action="/wishlist/<%=@wishlist.id%>/delete">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete This Wishlist"  class="btn btn-danger">
+    </form>
+    </p>
+  <%end%>
+<%end%>

@@ -2,12 +2,18 @@ class ItemController < ApplicationController
 
   post '/item/new' do
     @wishlist = WishList.find_by_id(params[:wishlist_id])
-    item = @wishlist.items.build(:name => params[:item],:quantity => params[:quantity],:price => params[:price])
-    item.save
-    if item.errors.include?(:name)
-      flash[:alert] = "Item must have name."
+    if logged_in?
+      if current_user.id == @wishlist.id && @wishlist
+        item = @wishlist.items.build(:name => params[:item],:quantity => params[:quantity],:price => params[:price])
+        item.save
+      end
+      if item.errors.include?(:name)
+        flash[:alert] = "Item must have name."
+      end
+    else
+      redirect "wishlist/show/#{@wishlist.id}" 
     end
-    redirect "wishlist/show/#{@wishlist.id}" 
+
   end
 
   post '/item/:id/delete' do #delete action
