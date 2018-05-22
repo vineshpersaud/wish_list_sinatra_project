@@ -12,14 +12,8 @@ gem 'thin'
 
 
 
-group :development, :test do
- gem  'sqlite3'
- gem 'tux'
- gem 'pry'
- gem 'shotgun'
-end
-
 group :production do
+  gem 'rails_12factor'
   gem 'pg'
 end
 
