@@ -9,7 +9,7 @@ gem 'require_all'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem 'thin'
-gem 'pg', '~> 1.0'
+gem 'pg', '~> 0.20'
 
 
 group :development do
