@@ -25,8 +25,12 @@ use Rack::Flash
 
   post '/wishlist/new' do 
     wishlist = current_user.wish_lists.build(:name => params[:name])
-    wishlist.save
-    redirect "wishlist/show/#{wishlist.id}" 
+    if wishlist.save
+      redirect "wishlist/show/#{wishlist.id}" 
+    else
+      flash[:message] = "Please enter name for Wishlist."
+      redirect '/wishlist/new'
+    end
   end
 
   get '/wishlist/show/:id' do

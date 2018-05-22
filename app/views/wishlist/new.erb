@@ -1,4 +1,11 @@
 <h3>Create New Wish List</h3>
+
+  <% if flash.has?(:message) %>
+    <div class="alert alert-danger" role="alert">
+     <%= flash[:message] %>
+    </div>
+  <% end %>
+
 <form action="/wishlist/new" method="POST">
   <p>Wishlist Name: <input type="text" name="name"></p>
   <input type="submit" name="Create Wishlist" type="button" class="btn btn-primary">
