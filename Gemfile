@@ -9,7 +9,6 @@ gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
 gem 'rack-flash3'
-gem 'pg'
 
 
 group :development do
@@ -18,10 +17,7 @@ group :development do
   gem 'pry'
   gem "tux"
 end
-
-group :test do
-  gem 'rspec'
-  gem 'capybara'
-  gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+group :production do
+  gem "pg"
 end
+
