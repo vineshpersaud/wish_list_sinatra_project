@@ -9,8 +9,11 @@ gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
 gem 'rack-flash3'
-gem 'pg'
 
+
+group :test, :production do
+    gem 'pg'
+end
 
 group :development do
   gem 'sqlite3'
