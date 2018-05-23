@@ -12,7 +12,7 @@ gem 'rack-flash3'
 
 
 group :test, :production do
-    gem 'pg'
+    gem 'pg', '~> 0.20.0'
 end
 
 group :development do
