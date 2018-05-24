@@ -53,4 +53,24 @@ use Rack::Flash
     end
   end
 
+   get '/wishlist/:id/edit' do 
+    @wishlist = WishList.find_by_id(params[:id])
+    erb :'wishlist/edit'
+  end
+  
+
+  patch '/wishlist/:id' do
+    @wishlist = WishList.find_by_id(params[:id]) 
+      if logged_in?
+        if @wishlist && @wishlist.user_id == current_user.id 
+          @wishlist.name = params[:name]
+          @wishlist.save
+          flash[:message] = "Wishlist name successfully updated."
+          redirect "/wishlist/show/#{@wishlist.id}"
+        end
+      else
+        redirect "wishlist/show/#{@wishlist.id}" 
+      end
+  end      
+
 end

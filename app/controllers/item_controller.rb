@@ -39,6 +39,7 @@ class ItemController < ApplicationController
     @item.quantity = params[:quantity]
     @item.price = params[:price]
     @item.save
+    flash[:message] = "Item Successfully updated"
     redirect "/wishlist/show/#{@item.wish_list_id}"
   end
 

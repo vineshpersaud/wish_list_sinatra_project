@@ -1,0 +1,5 @@
+<form action="/wishlist/<%=@wishlist.id%>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch"">
+  <p>Wishlist Name: <input type="text" name="name"  value="<%=@wishlist.name%>"></p>
+  <input type="submit" value="Update Wishlist Name" type="button" class="btn btn-primary">
+</form>

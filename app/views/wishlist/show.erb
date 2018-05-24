@@ -25,13 +25,15 @@
         <td><%=item.price%></td>
         <%if logged_in?%>
           <% if current_user.id == @wishlist.user_id %>
+           <td>
+             <a href="/items/<%=item.id%>/edit"  class="btn btn-info" role="button" aria-pressed="true">Edit</a>
+           </td>
             <td>
               <form method="POST" action="/item/<%=item.id%>/delete">
               <input id="hidden" type="hidden" name="_method" value="DELETE">
               <input type="submit" value="Delete This item"  class="btn btn-danger btn-sm">
               </form>
             </td>
-            <td><a href="/items/<%=item.id%>/edit">Edit</a></td>
           <%end%>
         <%end%>
       </tr>
@@ -53,6 +55,8 @@
     </form>
 
     <p>
+     <a href="/wishlist/<%=@wishlist.id%>/edit"  class="btn btn-info" role="button" aria-pressed="true">Edit Wishlist Name</a>
+      
     <form method="POST" action="/wishlist/<%=@wishlist.id%>/delete">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Delete This Wishlist"  class="btn btn-danger">
