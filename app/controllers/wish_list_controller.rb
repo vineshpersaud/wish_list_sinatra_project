@@ -40,7 +40,7 @@ use Rack::Flash
   end
 
 
-  post '/wishlist/:id/delete' do
+  delete '/wishlist/:id/delete' do
     @wishlist = WishList.find_by_id(params[:id])
     if logged_in?
       if @wishlist && @wishlist.user_id == current_user.id 

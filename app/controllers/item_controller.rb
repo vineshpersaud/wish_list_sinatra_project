@@ -16,7 +16,7 @@ class ItemController < ApplicationController
     redirect "wishlist/show/#{@wishlist.id}" 
   end
 
-  post '/item/:id/delete' do #delete action
+  delete '/item/:id/delete' do #delete action
     @item = Item.find_by_id(params[:id])
     @wishlist = @item.wish_list_id
     if logged_in?
@@ -28,18 +28,18 @@ class ItemController < ApplicationController
     end
   end
 
-  get '/item/:id/edit' do 
+  get '/items/:id/edit' do 
     @item = Item.find_by_id(params[:id])
     erb :'items/edit'
   end
 
-  patch '/item/:id/edit' do 
+  patch '/items/:id' do 
     @item = Item.find_by_id(params[:id])
     @item.name = params[:item]
     @item.quantity = params[:quantity]
     @item.price = params[:price]
-    @item.save  
-    redirect "/wishlist/show/#{@wishlist}"
+    @item.save
+    redirect "/wishlist/show/#{@item.wish_list_id}"
   end
 
 end
