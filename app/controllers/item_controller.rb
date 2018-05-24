@@ -28,4 +28,18 @@ class ItemController < ApplicationController
     end
   end
 
+  get '/item/:id/edit' do 
+    @item = Item.find_by_id(params[:id])
+    erb :'items/edit'
+  end
+
+  patch '/item/:id/edit' do 
+    @item = Item.find_by_id(params[:id])
+    @item.name = params[:item]
+    @item.quantity = params[:quantity]
+    @item.price = params[:price]
+    @item.save  
+    redirect "/wishlist/show/#{@wishlist}"
+  end
+
 end

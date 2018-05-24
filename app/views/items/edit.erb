@@ -1,0 +1,7 @@
+    <form action="/item/<%=@item.id%>/edit" method="patch">
+      <input id="hidden" type="hidden" name="_method" value="patch">
+     Update Item: <input type="text" name="item" placeholder="Item Name" value="<%@item.name%>">
+     <input type="number" name="quantity" placeholder="Quantity" value="<%@item.quantity%>">
+     <input type="text" name="price" placeholder="Price" value="<%@item.price%>">
+     <input type="submit" name="Add Item To List " value="Update Item" class="btn btn-primary">
+    </form>
