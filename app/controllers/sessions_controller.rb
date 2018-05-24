@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController 
-   
+  
+
 
   get '/login' do
     erb :'users/login'
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 
 
   get '/sessions/logout' do 
-    flash[:message] = "You have successfully logged out."
+    flash[:message].now = "You have successfully logged out."
     session.clear 
     erb :'wishlist/home'
   end

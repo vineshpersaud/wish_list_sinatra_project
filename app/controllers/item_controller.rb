@@ -1,5 +1,5 @@
 class ItemController < ApplicationController 
-  
+
 
   post '/item/new' do
     @wishlist = WishList.find_by_id(params[:wishlist_id])
@@ -20,7 +20,7 @@ class ItemController < ApplicationController
     @item = Item.find_by_id(params[:id])
     @wishlist = @item.wish_list_id
     if logged_in?
-      if current_user.id == WishList.find_by_id(@wishlist).user_id
+      if current_user.id == WishList.find_by_id( @item.wish_list_id).user_id
         @item.delete
         flash[:message] = "Item successfully deleted."
         redirect "/wishlist/show/#{@wishlist}"
@@ -35,12 +35,17 @@ class ItemController < ApplicationController
 
   patch '/items/:id' do 
     @item = Item.find_by_id(params[:id])
-    @item.name = params[:item]
-    @item.quantity = params[:quantity]
-    @item.price = params[:price]
-    @item.save
-    flash[:message] = "Item Successfully updated"
-    redirect "/wishlist/show/#{@item.wish_list_id}"
+     if logged_in?
+       if current_user.id == WishList.find_by_id( @item.wish_list_id).user_id
+          @item = Item.find_by_id(params[:id])
+          @item.name = params[:item]
+          @item.quantity = params[:quantity]
+          @item.price = params[:price]
+          @item.save
+          flash[:message] = "Item Successfully updated"
+          redirect "/wishlist/show/#{@item.wish_list_id}"
+        end
+      end
   end
 
 end

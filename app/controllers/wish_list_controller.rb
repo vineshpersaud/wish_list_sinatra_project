@@ -1,8 +1,5 @@
-require 'rack-flash'
-
-
 class WishListController < ApplicationController
-use Rack::Flash
+
 
 
   get "/" do
