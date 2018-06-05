@@ -1,6 +1,5 @@
 require 'bundler/setup'
 require 'rack-flash'
-require './web'
 Bundler.require
 
   ENV['SINATRA_ENV'] ||= "development"
