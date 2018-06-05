@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 ruby '2.4.1'
 
-gem 'sinatra'
-gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
+gem "sinatra"
+gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
 gem 'require_all'
@@ -12,7 +12,7 @@ gem 'rack-flash3'
 
 
 group :production do
-    gem 'pg'
+    gem 'pg', '~> 0.11'
 end
 
 group :development do
