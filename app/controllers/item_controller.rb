@@ -20,7 +20,7 @@ class ItemController < ApplicationController
     @item = Item.find_by_id(params[:id])
     @wishlist = @item.wish_list_id
     if logged_in?
-      if current_user.id == @item.wish_list_id.user_id
+      if current_user.id == WishList.find_by_id( @item.wish_list_id).user_id
         @item.delete
         flash[:message] = "Item successfully deleted."
         redirect "/wishlist/show/#{@wishlist}"
@@ -36,7 +36,7 @@ class ItemController < ApplicationController
   patch '/items/:id' do 
     @item = Item.find_by_id(params[:id])
      if logged_in?
-       if current_user.id == @item.wish_list.user_id
+       if current_user.id == WishList.find_by_id( @item.wish_list_id).user_id
           @item = Item.find_by_id(params[:id])
           @item.name = params[:item]
           @item.quantity = params[:quantity]
@@ -47,5 +47,3 @@ class ItemController < ApplicationController
         end
       end
   end
-
-end
