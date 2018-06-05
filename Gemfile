@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 ruby '2.4.1'
 
-gem 'heroku'
 gem 'sinatra'
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -12,15 +11,15 @@ gem 'bcrypt'
 gem 'rack-flash3'
 
 
-group :test, :production do
+group :production do
+    gem 'pg'
+end
+
+group :development do
   gem 'sqlite3'
   gem 'shotgun'
   gem 'pry'
   gem "tux"
-end
-
-group :development do
-  gem 'pg'
 end
 
 group :test do
