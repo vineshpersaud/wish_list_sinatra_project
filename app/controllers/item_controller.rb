@@ -47,3 +47,4 @@ class ItemController < ApplicationController
         end
       end
   end
+end
