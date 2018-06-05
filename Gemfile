@@ -13,14 +13,14 @@ gem 'rack-flash3'
 
 
 group :test, :production do
-    gem 'pg'
-end
-
-group :development do
   gem 'sqlite3'
   gem 'shotgun'
   gem 'pry'
   gem "tux"
+end
+
+group :development do
+  gem 'pg'
 end
 
 group :test do
