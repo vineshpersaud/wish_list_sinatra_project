@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'rack-flash'
 Bundler.require
+
 configure :development do
   ENV['SINATRA_ENV'] ||= "development"
 
@@ -25,3 +26,4 @@ end
 
 
 require_all 'app'
+
